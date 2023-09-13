@@ -6,6 +6,7 @@ interface Props {
 
 // we need to grab a type definition from React to use for our function component
 // we get it off the React object
+// we pass the props arg to let it know what props it is expecting
 /* @ts-expect-error */
 export const Button: React.FC<Props> = (props: Props) => {
   return {
