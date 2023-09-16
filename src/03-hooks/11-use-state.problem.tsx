@@ -1,7 +1,9 @@
 import { useState } from "react";
 
+// we could also pull this object schema into its own type
+// then we can reference the type like NewType[]
 export const Tags = () => {
-  const [tags, setTags] = useState([]);
+  const [tags, setTags] = useState<{id: number, value: string}[]>([]);
   return (
     <div>
       {tags.map((tag) => {
