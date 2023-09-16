@@ -11,7 +11,9 @@ const fetchData = () => {
 };
 
 export const Component = () => {
-  const [data, setData] = useState();
+  // here we can pass just data as the type
+  // as the useState initial state is empty it will also be inferred as undefined
+  const [data, setData] = useState<Data>();
 
   useEffect(() => {
     fetchData().then((val) => {
