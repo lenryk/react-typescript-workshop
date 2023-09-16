@@ -1,8 +1,12 @@
 import { ComponentProps } from "react";
 import { Equal, Expect } from "../helpers/type-utils";
 
+// we can either omit the onChange from the component props and redefine
+// or create a generic utility that does it for us
 export const Input = (
-  props: ComponentProps<"input"> & { onChange: (value: string) => void }
+  props: Omit<ComponentProps<"input">, "onChange"> & {
+    onChange: (value: string) => void;
+  }
 ) => {
   return (
     <input
