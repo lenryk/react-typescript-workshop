@@ -5,6 +5,8 @@ interface TagState {
   tags: { id: number; value: string }[];
 }
 
+// we have to set the SetState return function value as TagState
+// this lets TS compare the objects e.g. the returned object and interface
 export const Tags = () => {
   const [state, setState] = useState<TagState>({
     tags: [],
@@ -17,7 +19,7 @@ export const Tags = () => {
           <button
             key={tag.id}
             onClick={() => {
-              setState((currentState) => ({
+              setState((currentState): TagState => ({
                 ...currentState,
                 // @ts-expect-error
                 tagselected: tag.id,
@@ -30,7 +32,7 @@ export const Tags = () => {
       })}
       <button
         onClick={() => {
-          setState((currentState) => ({
+          setState((currentState): TagState => ({
             ...currentState,
             tags: [
               ...currentState.tags,
