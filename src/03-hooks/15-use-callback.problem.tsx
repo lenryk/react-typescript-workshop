@@ -1,9 +1,11 @@
 import { useCallback } from "react";
 import { Equal, Expect } from "../helpers/type-utils";
 
+// here we remove the generic angular brackets for string
+// we then add a type to the buttonName parameter within the function itself
 export const Buttons = (props: { id: string }) => {
-  const onClick = useCallback<string>(
-    (buttonName) => {
+  const onClick = useCallback(
+    (buttonName: string) => {
       console.log(props.id, buttonName);
     },
     [props.id],
