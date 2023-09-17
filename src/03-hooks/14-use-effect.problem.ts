@@ -1,11 +1,17 @@
 import { useEffect } from "react";
 
+// not really a TS exercise
+// more of a React one
 export const useTimeout = (timerMs: number) => {
   useEffect(
-    () =>
-      setTimeout(() => {
+    () => {
+      const timer = setTimeout(() => {
         console.log("Done!");
-      }, timerMs),
+      }, timerMs)
+
+      return clearTimeout(timer)
+    },
+
     [timerMs],
   );
 };
